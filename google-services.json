@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "451218918782",
+    "project_id": "re-bin",
+    "storage_bucket": "re-bin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451218918782:android:d54831d2fcf3f4a50ab72f",
+        "android_client_info": {
+          "package_name": "com.exampleproj.rebin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451218918782-ohs4bai7arvp423siilc5es8fu9t4eat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP_PC97ULy1ezli8t6AGfn7zg7MG_rmxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451218918782-ohs4bai7arvp423siilc5es8fu9t4eat.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "451218918782-ipvge9vdiuk6aeblgte8o47q0qe8u7i0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.exampleproj.rebin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451218918782:android:d89a81cdf462049d0ab72f",
+        "android_client_info": {
+          "package_name": "com.exampleproj.rebinnew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451218918782-ohs4bai7arvp423siilc5es8fu9t4eat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP_PC97ULy1ezli8t6AGfn7zg7MG_rmxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451218918782-ohs4bai7arvp423siilc5es8fu9t4eat.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "451218918782-ipvge9vdiuk6aeblgte8o47q0qe8u7i0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.exampleproj.rebin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
