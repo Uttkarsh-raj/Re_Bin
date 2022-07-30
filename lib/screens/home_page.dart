@@ -27,8 +27,8 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(0),
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
+            DrawerHeader(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
                     Color.fromRGBO(100, 181, 246, 1),
@@ -39,17 +39,17 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromRGBO(102, 187, 106, 1),
                   backgroundBlendMode: BlendMode.lighten,
                 ),
-                accountName: Text(
+                accountName: const Text(
                   'Hello',
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text('user@1234gmail.com'),
-                currentAccountPictureSize: Size.square(50),
-                currentAccountPicture: CircleAvatar(
+                accountEmail: Text('$user.email'),
+                currentAccountPictureSize: const Size.square(50),
+                currentAccountPicture: const CircleAvatar(
                   backgroundColor: Color.fromARGB(255, 165, 255, 137),
                   child: Text(
                     'A',
@@ -113,9 +113,9 @@ class HomePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.logout_rounded),
-              title: const Text('Logout'),
+              title: const Text('SignOut'),
               onTap: () {
-                Navigator.pop(context);
+                FirebaseAuth.instance.signOut();
               },
             ),
           ],
