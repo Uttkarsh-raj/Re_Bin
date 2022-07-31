@@ -1,34 +1,45 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rebinnew/screens/forgotpasswordpage.dart';
 
-class LoginPage extends StatefulWidget {
-  //to register screen : needs initialisation after the key field
-  final VoidCallback showRegisterPage;
-
-  const LoginPage({Key? key, required this.showRegisterPage}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  final VoidCallback showLoginPage;
+  const RegisterPage({Key? key, required this.showLoginPage}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   //text controller
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
-  }
+  final _confirmPasswordController = TextEditingController();
 
   @override
   void dispose() async {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
+
     super.dispose();
+  }
+
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+    } else {}
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
@@ -42,12 +53,12 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const SizedBox(height: 30),
                 const Text(
-                  'Hello User!!',
+                  'Hello There!!!',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const SizedBox(height: 10),
                 const Text(
-                  'Welcome back, you are great!',
+                  'Register with your details now!!',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
 
@@ -104,41 +115,35 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 10),
 
-                //FORGOT PASSWORD
+                //CONFIRM PASSWORD FIELD
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const ForgotPasswordPage();
-                              },
-                            ),
-                          );
-                        },
-                        child: const Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green[100],
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                        controller: _confirmPasswordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Confirm Password',
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
 
-                //SIGN IN BUTTON
+                //SIGN UP BUTTON
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: signIn,
+                  onTap: signUp,
                   child: Container(
                     height: 60,
                     width: 300,
@@ -149,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: const Center(
                       child: Text(
-                        'Sign In',
+                        'Sign Up',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -162,18 +167,18 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 15),
 
-                //REGISTER TEXT
+                //LOGIN TEXT
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Not a member?',
+                      'Already a member?',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
-                      onTap: widget.showRegisterPage,
-                      child: const Text(' Register now ',
+                      onTap: widget.showLoginPage,
+                      child: const Text(' Login now ',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.blue,
@@ -182,15 +187,12 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
 
-                const SizedBox(height: 20),
+                // const SizedBox(height: 5),
 
                 //IMAGES
                 Image.asset(
-                  'assets/images/food.png',
+                  'assets/images/acessrbg.png',
                   width: 200,
-                  height: 200,
-                  alignment: Alignment.center,
-                  fit: BoxFit.contain,
                 ),
 
                 const SizedBox(height: 10),
