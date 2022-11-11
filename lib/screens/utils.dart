@@ -102,7 +102,7 @@ class ShortContainer extends StatelessWidget {
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
-              width: MediaQuery.of(context).size.height * 0.11,
+              width: MediaQuery.of(context).size.height * 0.13,
               child: Center(
                 child: Text(
                   label,

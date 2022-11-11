@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rebinnew/screens/donation_page.dart';
 import 'package:rebinnew/screens/utils.dart';
@@ -10,19 +11,64 @@ class HomePage2 extends StatefulWidget {
 }
 
 class _HomePage2State extends State<HomePage2> {
+  final user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(102, 187, 106, 1),
+              ),
+              child: UserAccountsDrawerHeader(
+                decoration: const BoxDecoration(
+                  color: Color.fromRGBO(102, 187, 106, 1),
+                  backgroundBlendMode: BlendMode.lighten,
+                ),
+                accountName: Text(
+                  'Hello ${user?.displayName ?? ''}',
+                  style: const TextStyle(fontSize: 18),
+                ),
+                accountEmail: Text('${user?.email}'),
+                currentAccountPictureSize: const Size.square(45),
+                currentAccountPicture: const CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 165, 255, 137),
+                  child: Text(
+                    'A',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('My Profile'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout_rounded),
+              title: const Text('SignOut'),
+              onTap: () {
+                FirebaseAuth.instance.signOut();
+              },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: const Color.fromARGB(255, 250, 250, 245),
       body: CustomScrollView(
         slivers: [
           // Sliver App Bar
           SliverAppBar(
             collapsedHeight: 57,
-            leading: const Icon(
-              Icons.menu,
-              size: 30,
-            ),
             centerTitle: true,
             title: const Text(
               'Re-Bin',
@@ -145,12 +191,9 @@ class _HomePage2State extends State<HomePage2> {
                               icon: Image.asset('assets/icons/donation.png'),
                             ),
                           ),
-                          const ShortContainer(
-                            label: 'Favorite',
-                            icon: Icon(
-                              Icons.favorite,
-                              size: 70,
-                            ),
+                          ShortContainer(
+                            label: 'Redeem',
+                            icon: Image.asset('assets/icons/buy.png'),
                           ),
                         ],
                       ),
