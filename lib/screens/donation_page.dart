@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class DonationPage extends StatefulWidget {
   const DonationPage({super.key});
@@ -6,6 +9,8 @@ class DonationPage extends StatefulWidget {
   @override
   State<DonationPage> createState() => _DonationPageState();
 }
+
+final user = FirebaseAuth.instance.currentUser;
 
 class _DonationPageState extends State<DonationPage> {
   String dropDownValue = 'Commodities';
@@ -30,6 +35,22 @@ class _DonationPageState extends State<DonationPage> {
   void dispose() {
     control.dispose();
     super.dispose();
+  }
+
+  Future donate() async {
+    donationDetails(user?.uid, user?.email, int.parse(control.text),
+        dropDownValue, dropDownValue1);
+  }
+
+  Future donationDetails(String? uid, String? email, int quantity,
+      String commodity, String action) async {
+    await FirebaseFirestore.instance.collection('donations').add({
+      'uid': uid,
+      'email': email,
+      'quantity': quantity,
+      'commodity': commodity,
+      'action': action,
+    });
   }
 
   @override
@@ -262,7 +283,10 @@ class _DonationPageState extends State<DonationPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      // donate();
+                      showCustomDialog(context);
+                    },
                     child: Container(
                       margin: const EdgeInsets.all(10),
                       height: MediaQuery.of(context).size.height * 0.1,
@@ -300,6 +324,58 @@ class _DonationPageState extends State<DonationPage> {
           ],
         ),
       ),
+    );
+  }
+
+  void showCustomDialog(BuildContext context) {
+    showGeneralDialog(
+      context: context,
+      barrierLabel: "Barrier",
+      barrierDismissible: true,
+      barrierColor: Colors.black.withOpacity(0.5),
+      transitionDuration: const Duration(milliseconds: 200),
+      pageBuilder: (_, __, ___) {
+        return Center(
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.7,
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(40),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Scaffold(
+                body: Column(
+                  children: [
+                    const Center(
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child: Text(
+                          'Congratulations',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 31, 22),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 23,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                        child: Lottie.network(
+                          'https://assets2.lottiefiles.com/datafiles/3RKIaYNZqu6RrV0/data.json',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
