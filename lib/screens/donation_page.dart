@@ -352,7 +352,7 @@ class _DonationPageState extends State<DonationPage> {
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                         child: Text(
-                          'Congratulations',
+                          'Thank You',
                           style: TextStyle(
                             color: Color.fromARGB(255, 26, 31, 22),
                             fontWeight: FontWeight.bold,
@@ -364,9 +364,57 @@ class _DonationPageState extends State<DonationPage> {
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: Lottie.network(
-                          'https://assets2.lottiefiles.com/datafiles/3RKIaYNZqu6RrV0/data.json',
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          width: MediaQuery.of(context).size.width,
+                          child: Lottie.network(
+                            'https://assets2.lottiefiles.com/datafiles/3RKIaYNZqu6RrV0/data.json',
+                            fit: BoxFit.fill,
+                          ),
                         ),
+                      ),
+                    ),
+                    Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              child: Text(
+                                'We appreciate your help in this noble cause.',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 26, 31, 22),
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              child: Text(
+                                ' Thank you so much for this.',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 26, 31, 22),
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              child: Text(
+                                'You have earnerd +1 points',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 26, 31, 22),
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
