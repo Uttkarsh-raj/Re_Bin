@@ -284,8 +284,24 @@ class _DonationPageState extends State<DonationPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // donate();
-                      showCustomDialog(context);
+                      if (dropDownValue != 'Commodities' &&
+                          dropDownValue1 != 'Action') {
+                        donate();
+                        showCustomDialog(context);
+                      } else {
+                        final snackBar = SnackBar(
+                          content: const Text(
+                            'Please fill the above data properly.',
+                          ),
+                          backgroundColor:
+                              const Color.fromARGB(255, 26, 31, 22),
+                          action: SnackBarAction(
+                            label: 'dismiss',
+                            onPressed: () {},
+                          ),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      }
                     },
                     child: Container(
                       margin: const EdgeInsets.all(10),
@@ -376,44 +392,45 @@ class _DonationPageState extends State<DonationPage> {
                     ),
                     Center(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Center(
                             child: Padding(
-                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                               child: Text(
-                                'We appreciate your help in this noble cause.',
+                                'We appreciate your help in this noble cause. Thank you so much for this.You have earnerd +5 credit.',
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 26, 31, 22),
-                                  fontSize: 18,
+                                  fontSize: 22,
                                 ),
                               ),
                             ),
                           ),
-                          Center(
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                              child: Text(
-                                ' Thank you so much for this.',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 26, 31, 22),
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Center(
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                              child: Text(
-                                'You have earnerd +1 points',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 26, 31, 22),
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ),
+                          // Center(
+                          //   child: Padding(
+                          //     padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          //     child: Text(
+                          //       ' Thank you so much for this.',
+                          //       style: TextStyle(
+                          //         color: Color.fromARGB(255, 26, 31, 22),
+                          //         fontSize: 18,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          // Center(
+                          //   child: Padding(
+                          //     padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          //     child: Text(
+                          //       'You have earnerd +1 points',
+                          //       style: TextStyle(
+                          //         color: Color.fromARGB(255, 26, 31, 22),
+                          //         fontSize: 18,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
