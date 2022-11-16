@@ -120,3 +120,36 @@ class ShortContainer extends StatelessWidget {
     );
   }
 }
+
+class BannerWidget extends StatelessWidget {
+  const BannerWidget({super.key, required this.image});
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(15, 8, 10, 8),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.75,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 250, 250, 245),
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 10,
+              color: Color(0x413A5160),
+              offset: Offset(1.1, 1.1),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(18),
+          child: Image.asset(
+            image,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    );
+  }
+}

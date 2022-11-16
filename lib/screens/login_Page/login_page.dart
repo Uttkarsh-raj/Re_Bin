@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rebinnew/screens/forgotpasswordpage.dart';
+import 'package:rebinnew/screens/forgotpassword_Page/forgotpasswordpage.dart';
 
 class LoginPage extends StatefulWidget {
   //to register screen : needs initialisation after the key field

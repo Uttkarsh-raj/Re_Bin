@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rebinnew/screens/donation_page.dart';
-import 'package:rebinnew/screens/utils.dart';
+import 'package:rebinnew/screens/donation_Page/donation_page.dart';
+import 'package:rebinnew/screens/home_Page/utils.dart';
 
 class HomePage2 extends StatefulWidget {
   const HomePage2({Key? key}) : super(key: key);
@@ -12,6 +12,11 @@ class HomePage2 extends StatefulWidget {
 
 class _HomePage2State extends State<HomePage2> {
   final user = FirebaseAuth.instance.currentUser;
+  final _images = [
+    'assets/images/360_F_348272608_Z99YZooY3ULkxg6fyJdcPMs9Zwq9yQsN.jpg',
+    'assets/images/EarnRewards.png',
+    'assets/images/360_F_348272608_Z99YZooY3ULkxg6fyJdcPMs9Zwq9yQsN.jpg',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,22 +146,8 @@ class _HomePage2State extends State<HomePage2> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 8, 0, 8),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.75,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 250, 250, 245),
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 10,
-                            color: Color(0x413A5160),
-                            offset: Offset(1.1, 1.1),
-                          ),
-                        ],
-                      ),
-                    ),
+                  return BannerWidget(
+                    image: _images[index],
                   );
                 },
               ),

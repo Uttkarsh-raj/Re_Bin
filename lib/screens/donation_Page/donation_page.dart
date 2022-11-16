@@ -407,30 +407,6 @@ class _DonationPageState extends State<DonationPage> {
                               ),
                             ),
                           ),
-                          // Center(
-                          //   child: Padding(
-                          //     padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          //     child: Text(
-                          //       ' Thank you so much for this.',
-                          //       style: TextStyle(
-                          //         color: Color.fromARGB(255, 26, 31, 22),
-                          //         fontSize: 18,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                          // Center(
-                          //   child: Padding(
-                          //     padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          //     child: Text(
-                          //       'You have earnerd +1 points',
-                          //       style: TextStyle(
-                          //         color: Color.fromARGB(255, 26, 31, 22),
-                          //         fontSize: 18,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
