@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rebinnew/screens/donation_Page/donation_page.dart';
+import 'package:rebinnew/screens/donations_Page/donations_Page.dart';
 import 'package:rebinnew/screens/home_Page/utils.dart';
+import 'package:rebinnew/screens/myCoins_Page/my_coins.dart';
+import 'package:rebinnew/screens/redeem_Page/redeem_page.dart';
 
 class HomePage2 extends StatefulWidget {
   const HomePage2({Key? key}) : super(key: key);
@@ -15,11 +18,12 @@ class _HomePage2State extends State<HomePage2> {
   final _images = [
     'assets/images/360_F_348272608_Z99YZooY3ULkxg6fyJdcPMs9Zwq9yQsN.jpg',
     'assets/images/EarnRewards.png',
-    'assets/images/360_F_348272608_Z99YZooY3ULkxg6fyJdcPMs9Zwq9yQsN.jpg',
+    'assets/images/1_b6y-3uV-gzHKHX17TePT4Q.png',
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //DRAWER
       drawer: Drawer(
         child: ListView(
           padding: const EdgeInsets.all(0),
@@ -182,9 +186,18 @@ class _HomePage2State extends State<HomePage2> {
                               icon: Image.asset('assets/icons/donation.png'),
                             ),
                           ),
-                          ShortContainer(
-                            label: 'Redeem',
-                            icon: Image.asset('assets/icons/buy.png'),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const RedeemPage(),
+                                  ));
+                            },
+                            child: ShortContainer(
+                              label: 'Redeem',
+                              icon: Image.asset('assets/icons/buy.png'),
+                            ),
                           ),
                         ],
                       ),
@@ -193,19 +206,35 @@ class _HomePage2State extends State<HomePage2> {
                       padding: const EdgeInsets.all(7),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          ShortContainer(
-                            label: 'Favorite',
-                            icon: Icon(
-                              Icons.favorite,
-                              size: 70,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const MyCoinsPage(),
+                                  ));
+                            },
+                            child: ShortContainer(
+                              label: 'MyCoins',
+                              icon:
+                                  Image.asset('assets/images/Rebin_Coin_1.png'),
                             ),
                           ),
-                          ShortContainer(
-                            label: 'Favorite',
-                            icon: Icon(
-                              Icons.favorite,
-                              size: 70,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DonationsPage(),
+                                ),
+                              );
+                            },
+                            child: ShortContainer(
+                              label: 'Donations',
+                              icon: Image.asset(
+                                'assets/images/wish-list.png',
+                              ),
                             ),
                           ),
                         ],
@@ -216,77 +245,77 @@ class _HomePage2State extends State<HomePage2> {
               ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: CustomContainer(),
-          ),
-          SliverToBoxAdapter(
-            child: Row(
-              children: const [
-                ShortContainer(
-                  label: 'Favorite',
-                  icon: Icon(
-                    Icons.favorite,
-                    size: 70,
-                  ),
-                ),
-                ShortContainer(
-                  label: 'Favorite',
-                  icon: Icon(
-                    Icons.favorite,
-                    size: 70,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Container(
-                height: 300,
-                decoration: BoxDecoration(
-                  color: Colors.green[400],
-                  borderRadius: BorderRadius.circular(18),
-                ),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.green[400],
-                  borderRadius: BorderRadius.circular(18),
-                ),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.green[400],
-                  borderRadius: BorderRadius.circular(18),
-                ),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colors.green[400],
-                  borderRadius: BorderRadius.circular(18),
-                ),
-              ),
-            ),
-          ),
+          // const SliverToBoxAdapter(
+          //   child: CustomContainer(),
+          // ),
+          // SliverToBoxAdapter(
+          //   child: Row(
+          //     children: const [
+          //       ShortContainer(
+          //         label: 'Favorite',
+          //         icon: Icon(
+          //           Icons.favorite,
+          //           size: 70,
+          //         ),
+          //       ),
+          //       ShortContainer(
+          //         label: 'Favorite',
+          //         icon: Icon(
+          //           Icons.favorite,
+          //           size: 70,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // SliverToBoxAdapter(
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(20),
+          //     child: Container(
+          //       height: 300,
+          //       decoration: BoxDecoration(
+          //         color: Colors.green[400],
+          //         borderRadius: BorderRadius.circular(18),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // SliverToBoxAdapter(
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(20),
+          //     child: Container(
+          //       height: 100,
+          //       decoration: BoxDecoration(
+          //         color: Colors.green[400],
+          //         borderRadius: BorderRadius.circular(18),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // SliverToBoxAdapter(
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(20),
+          //     child: Container(
+          //       height: 100,
+          //       decoration: BoxDecoration(
+          //         color: Colors.green[400],
+          //         borderRadius: BorderRadius.circular(18),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // SliverToBoxAdapter(
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(20),
+          //     child: Container(
+          //       height: 200,
+          //       decoration: BoxDecoration(
+          //         color: Colors.green[400],
+          //         borderRadius: BorderRadius.circular(18),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
