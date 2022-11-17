@@ -40,7 +40,7 @@ class CustomContainer extends StatelessWidget {
               const SizedBox(width: 20),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 15, 0, 10),
-                child: Container(
+                child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.09,
                   width: MediaQuery.of(context).size.width * 0.5,
                   child: Column(

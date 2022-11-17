@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rebinnew/screens/donation_Page/donation_page.dart';
-import 'package:rebinnew/screens/donations_Page/donations_Page.dart';
+import 'package:rebinnew/screens/donations_Page/all_donations_page.dart';
 import 'package:rebinnew/screens/home_Page/utils.dart';
 import 'package:rebinnew/screens/myCoins_Page/my_coins.dart';
 import 'package:rebinnew/screens/redeem_Page/redeem_page.dart';
