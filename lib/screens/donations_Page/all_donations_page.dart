@@ -21,6 +21,7 @@ class _DonationsPageState extends State<DonationsPage> {
         .where('email', isEqualTo: user!.email)
         .get()
         .then(
+          // ignore: avoid_function_literals_in_foreach_calls
           (snapshot) => snapshot.docs.forEach((document) {
             docIds.add(document.reference.id);
           }),
@@ -47,24 +48,28 @@ class _DonationsPageState extends State<DonationsPage> {
         ),
         backgroundColor: Colors.green[400],
       ),
-      body: FutureBuilder(
-        future: getDocIds(),
-        builder: (context, snapshot) {
-          return ListView.builder(
-            itemCount: docIds.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  tileColor: Colors.grey[200],
-                  title: GetQuantity(
-                    documentId: docIds[index],
+      body: RefreshIndicator(
+        onRefresh: getDocIds,
+        color: const Color.fromARGB(255, 26, 31, 22),
+        child: FutureBuilder(
+          future: getDocIds(),
+          builder: (context, snapshot) {
+            return ListView.builder(
+              itemCount: docIds.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListTile(
+                    tileColor: Colors.grey[200],
+                    title: GetQuantity(
+                      documentId: docIds[index],
+                    ),
                   ),
-                ),
-              );
-            },
-          );
-        },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

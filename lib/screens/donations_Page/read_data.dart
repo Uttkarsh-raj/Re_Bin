@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +25,7 @@ class GetQuantity extends StatelessWidget {
               children: [
                 SizedBox(
                   child: Text(
+                    // ignore: prefer_adjacent_string_concatenation
                     'Quantity:\n${data['quantity']}' +
                         '\t\n' +
                         'Commodity:\n${data['commodity']}' +
