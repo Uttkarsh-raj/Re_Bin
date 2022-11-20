@@ -24,7 +24,9 @@ class _MyCoinsPageState extends State<MyCoinsPage> {
         backgroundColor: Colors.green[400],
       ),
       body: Center(
-        child: Image.asset('assets/images/Rebin_Coin_1.png'),
+        child: Container(
+          child: Image.asset('assets/images/Rebin_Coin_1.png'),
+        ),
       ),
     );
   }
