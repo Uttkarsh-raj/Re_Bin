@@ -15,6 +15,7 @@ final user = FirebaseAuth.instance.currentUser;
 class _DonationPageState extends State<DonationPage> {
   String dropDownValue = 'Commodities';
   String dropDownValue1 = 'Action';
+  String datetime = DateTime.now().toString();
   final TextEditingController control = TextEditingController();
 
   var comodits = [
@@ -37,19 +38,21 @@ class _DonationPageState extends State<DonationPage> {
     super.dispose();
   }
 
-  Future donate() async {
-    donationDetails(user?.uid, user?.email, int.parse(control.text),
-        dropDownValue, dropDownValue1);
+  Future donate(int n) async {
+    donationDetails(datetime, user?.uid, user?.email, int.parse(control.text),
+        dropDownValue, dropDownValue1, n);
   }
 
-  Future donationDetails(String? uid, String? email, int quantity,
-      String commodity, String action) async {
+  Future donationDetails(String dateTime, String? uid, String? email,
+      int quantity, String commodity, String action, int n) async {
     await FirebaseFirestore.instance.collection('donations').add({
+      'D & T': datetime,
       'uid': uid,
       'email': email,
       'quantity': quantity,
       'commodity': commodity,
       'action': action,
+      'points': n,
     });
   }
 
@@ -286,8 +289,16 @@ class _DonationPageState extends State<DonationPage> {
                     onTap: () {
                       if (dropDownValue != 'Commodities' &&
                           dropDownValue1 != 'Action') {
-                        donate();
-                        showCustomDialog(context);
+                        if (dropDownValue == 'Stale Food(<1day)') {
+                          donate(5);
+                          showCustomDialog(context);
+                        } else if (dropDownValue == 'Stale Food(>1day)') {
+                          donate(4);
+                          showCustomDialog(context);
+                        } else if (dropDownValue == 'Plastic Bottles') {
+                          donate(2 * (int.parse(control.text)));
+                          showCustomDialog(context);
+                        }
                       } else {
                         final snackBar = SnackBar(
                           content: const Text(
@@ -399,7 +410,7 @@ class _DonationPageState extends State<DonationPage> {
                             child: Padding(
                               padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                               child: Text(
-                                'We appreciate your help in this noble cause. Thank you so much for this.You have earnerd +5 credit.',
+                                'We appreciate your help in this noble cause. Thank you so much for this.You have earnerd  credit.',
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 26, 31, 22),
                                   fontSize: 22,

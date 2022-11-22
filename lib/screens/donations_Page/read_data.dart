@@ -46,12 +46,14 @@ class GetQuantity extends StatelessWidget {
                         scale: 6,
                       ),
                     ),
-                    const Text(
-                      '+5',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 26, 31, 22),
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                    Center(
+                      child: Text(
+                        '+${data['points']}',
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 26, 31, 22),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
                       ),
                     )
                   ],
