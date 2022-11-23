@@ -29,12 +29,36 @@ class _MyCoinsPageState extends State<MyCoinsPage> {
             padding: const EdgeInsets.fromLTRB(8, 12, 8, 0),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: Image.asset(
-                    'assets/images/Rebin_Coin_1.png',
-                    scale: 5,
-                  ),
+                Stack(
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: Image.asset(
+                          'assets/images/Rebin_Coin_1.png',
+                          scale: 5,
+                        ),
+                      ),
+                    ),
+                    const Positioned(
+                      top: 85,
+                      bottom: 0,
+                      left: 173,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(5, 15, 0, 0),
+                        child: Center(
+                          child: Text(
+                            '+50',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 26, 31, 22),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(5, 15, 0, 0),
