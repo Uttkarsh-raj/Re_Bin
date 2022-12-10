@@ -6,6 +6,10 @@ A new Flutter project repository for an application that can helps people to sha
 
 <p align="center"> Re-Bin is an applicationn that can help you donate your food and get rewards points in return.</p>
 
+<center>
+![logo](https://user-images.githubusercontent.com/106571927/206838151-ec12784a-a873-4d18-ae26-2ea4e174e891.jpg)
+</center>
+
 <!--TABLE OF CONTENTS-->
 <details>
   <summary>Table of Contents</summary>
@@ -58,6 +62,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ![image](https://user-images.githubusercontent.com/106571927/206698233-ac9c9c2b-0d7d-49b9-8995-1c0761329324.png)
 
+![download](https://user-images.githubusercontent.com/106571927/206837964-7e65a5b9-0cb4-4f9a-837c-5c341e6a933d.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
