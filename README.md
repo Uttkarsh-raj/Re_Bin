@@ -60,12 +60,10 @@ Re-Bin is an application in which you can donate your remaining food and if the 
 
 This section should list any major frameworks/libraries used to bootstrap your project.Leave any add-ons/plugins for the acknowledgement section. Here are a few examples.
 
-![image](https://user-images.githubusercontent.com/106571927/206698131-0921a8dc-5ea9-46f7-a68c-ad1c717a0ff1.png)
 
-![image](https://user-images.githubusercontent.com/106571927/206698233-ac9c9c2b-0d7d-49b9-8995-1c0761329324.png)
-
-![download](https://user-images.githubusercontent.com/106571927/206837964-7e65a5b9-0cb4-4f9a-837c-5c341e6a933d.png)
-
+<img src="https://user-images.githubusercontent.com/106571927/206698131-0921a8dc-5ea9-46f7-a68c-ad1c717a0ff1.png" width="300"></img>
+<img src="https://user-images.githubusercontent.com/106571927/206698233-ac9c9c2b-0d7d-49b9-8995-1c0761329324.png" width="300"></img>
+<img src="https://user-images.githubusercontent.com/106571927/206837964-7e65a5b9-0cb4-4f9a-837c-5c341e6a933d.png" width="300"></img>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,17 +114,15 @@ flutter pub get
 ## Usage
 
 #### Screenshots:
+<img src="https://user-images.githubusercontent.com/106571927/206836689-2f38d113-9673-49b1-bbd7-76a6de2c34e3.jpg" width="300"></img>
 
-![WhatsApp Image 2022-12-10 at 12 35 08](https://user-images.githubusercontent.com/106571927/206836689-2f38d113-9673-49b1-bbd7-76a6de2c34e3.jpg)
+<img src="https://user-images.githubusercontent.com/106571927/206836698-30933140-41cd-437a-b2b4-2bcf23c0b302.jpg" width="300"></img>
 
-![WhatsApp Image 2022-12-10 at 12 35 27](https://user-images.githubusercontent.com/106571927/206836698-30933140-41cd-437a-b2b4-2bcf23c0b302.jpg)
+<img src="https://user-images.githubusercontent.com/106571927/206836705-d033e432-6e81-4c1b-a8cf-84b2d4b00dfa.jpg" width="300"></img>
 
-![WhatsApp Image 2022-12-10 at 12 35 49](https://user-images.githubusercontent.com/106571927/206836705-d033e432-6e81-4c1b-a8cf-84b2d4b00dfa.jpg)
+<img src="https://user-images.githubusercontent.com/106571927/206836747-93af0535-c081-4644-b633-55ccfd48e3ea.jpg" width="300"></img>
 
-![WhatsApp Image 2022-12-10 at 12 37 26](https://user-images.githubusercontent.com/106571927/206836747-93af0535-c081-4644-b633-55ccfd48e3ea.jpg)
-
-![WhatsApp Image 2022-12-10 at 12 42 00](https://user-images.githubusercontent.com/106571927/206837549-accdc1c2-737c-4b10-b83b-af8e3b3b5371.jpg)
-
+<img src="https://user-images.githubusercontent.com/106571927/206837549-accdc1c2-737c-4b10-b83b-af8e3b3b5371.jpg" width="300"></img>
 
 Donate Page:
 
